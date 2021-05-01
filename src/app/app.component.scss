@@ -1,0 +1,30 @@
+.controls{
+    display: flex;
+}
+
+.btn{
+    margin-left:10px;
+    margin-right: 10px;
+}
+
+.box-container{
+    margin-top: 20px;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+    border-radius: 5%;
+    display: inline-block;
+    margin-bottom: 1rem;
+    position: relative;
+    clear: both;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;
+    background-color: #377ac2;
+  }
+
+.box:hover{
+    cursor: pointer;
+}

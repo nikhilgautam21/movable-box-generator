@@ -2,13 +2,22 @@
 
 <div class="container-fluid text-center col-md-auto">
   <div class="controls">
-      <button class="btn btn-primary">Add Box</button>
-      <button class="btn btn-primary">Remove All</button>
+      <button class="btn btn-primary" (click)="handleAddBox()">Add Box</button>
+      <button class="btn" [ngClass]="[boxes.length ? 'btn-danger': 'btn-secondary']" (click)="handleRemoveAll()">Remove All</button>
+      <h5>Keyboard Event  </h5>
+      <label class="switch">
+        <input type="checkbox" checked (change)="handleToggleKeyboardEvent($event)">
+        <span class="slider round"></span>
+      </label>
   </div>
-  <div class="container  box-container">
-      <div class="box-wrapper" *ngFor="let box of boxes; let i = index">
-          <div class="box" [ngStyle]="{'z-index':i}">
-              <span>Box {{i}}</span>
+  <div class="container box-container col-md-auto col-sm-auto" [ngStyle]="{'border': boxes.length>0 ? '1px solid rgb(60, 123, 194)': 'none'}" id="box-container">
+      <div class="box-wrapper col-xs-6 col-sm-4  col-md-2 col-lg-2" *ngFor="let box of boxes; let idx = index">
+          <div
+            [id]="idx"
+            class="box" 
+            (click)="handleBoxClick(idx)"
+            [ngStyle]="{ 'z-index': i, background: selectedBoxId == idx ? '#dcae5f' : '' }">
+              <span>Box {{idx+1}}</span>
           </div>
       </div>
   </div>
